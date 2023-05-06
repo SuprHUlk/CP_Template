@@ -10,9 +10,9 @@ public class Solution {
             while(test-->0) {
                 boolean f=true;
                 int n=sc.nextInt();
-                // //String s=sc.next();
-                // //ArrayList <Integer> l=new ArrayList<>();
-                // //HashMap<Character, Integer> m=new HashMap<>();
+                // String s=sc.next();
+                // ArrayList <Integer> l=new ArrayList<>();
+                // HashMap<Character, Integer> m=new HashMap<>();
                 // char ch[]=sc.next().toCharArray();              
                 out.println("");
             }
