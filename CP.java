@@ -4,17 +4,19 @@ import java.io.*;
 public class Solution {
     public static void main(String args[]) {
         try {
-            FastReader sc=new FastReader();
+            FastReader sc = new FastReader();
             FastWriter out = new FastWriter();
-            int test=sc.nextInt();         
+            int test=1;         
             while(test-->0) {
                 boolean f=true;
                 int n=sc.nextInt();
                 // String s=sc.next();
                 // ArrayList <Integer> l=new ArrayList<>();
                 // HashMap<Character, Integer> m=new HashMap<>();
-                // char ch[]=sc.next().toCharArray();              
-                out.println("");
+                // int a[] = new int[n];
+                // int a[][] = new int[n][n];
+                // char ch[]=sc.next().toCharArray();
+                
             }
             out.close();
         }
@@ -25,13 +27,12 @@ public class Solution {
     }
 
     static boolean isPalindrome(String s) {
-        StringBuffer s1=new StringBuffer(s);
-        if(s1.toString().equals(s1.reverse().toString())) {
-            return true;
+        for(int i=0; i<s.length()/2; i++) {
+            if(s.charAt(i)!=s.charAt(s.length()-1-i)) {
+                return false;
+            }
         }
-        else {
-            return false;
-        }
+        return true;
     }
 
     static boolean isPrime(int num) {
@@ -58,7 +59,7 @@ public class Solution {
         }       
         return gcd(a, b-a);
     }
-     
+
     static boolean isCPrime(int a, int b) {
         int min=Math.min(a,b);
         for(int i=min;i>=2;i--) {
