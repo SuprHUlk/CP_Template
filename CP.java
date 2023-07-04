@@ -1,42 +1,53 @@
 import java.util.*;
 import java.io.*;
 
-public class Solution {
+public class CP {
 
     public static void main(String[] args) throws IOException {
-        int test = sc.nextInt();
-        while (test-->0) {
+        int test=sc.nextInt();
+        while(test-->0) {
             boolean f=true;
             int n=sc.nextInt();
             // Comparator<Pair> com=new Comparator<Pair>() {
             //     public int compare(Pair i, Pair j) {
-            //         if(i.b==j.b) {
-            //             return 0;
+            //         if(i.a==j.a) {
+            //             return 0; 
             //         }
-            //         else if(i.b>j.b) {
+            //         else if(i.a>j.a) {
             //             return 1;
             //         }
             //         return -1;
             //     }
-            // };
+            // };   
             // String s=sc.next();
-            // ArrayList <Integer> l=new ArrayList<>();
-            // PriorityQueue <Long> pq=new PriorityQueue<>();
-            // HashMap<Integer, Integer> m=new HashMap<>();
-            // HashSet<String> set=new HashSet<>();  
+            // ArrayList<Pair> lt=new ArrayList<>();
+            // PriorityQueue <Integer> pq=new PriorityQueue<>();
+            // HashMap<Integer, Integer> mp=new HashMap<>();
+            // HashSet<Integer> st=new HashSet<>();
             // char ch[]=sc.next().toCharArray();
-            
-            pw.println();
+
         }
         pw.close();
     }
 
     public static class Pair {
-        char a;
+        int a;
         int b;
-        Pair(char a, int b) {
+        Pair(int a, int b) {
             this.a=a;
             this.b=b;
+        }
+    }
+
+    static void dfs(int u, int p, long[] lev, ArrayList<ArrayList<Integer>> l) {
+        for (int v: l.get(u)) {
+            if (v!=p) {
+                dfs(v, u, lev, l);
+                lev[u]+=lev[v];
+            }
+        }
+        if (lev[u]==0) {
+            lev[u]=1;
         }
     }
 
@@ -53,7 +64,7 @@ public class Solution {
         if(num<=1) {
             return false;
         }
-        for(int i=2;i<=num/2;i++){
+        for(int i=2;i<=num/2;i++){ 
            if((num%i)==0) {
             return false;
            }
@@ -105,8 +116,12 @@ public class Solution {
         return (1l * a * b) / gcd(a, b);
     }
 
-    static void sort(int[] arr) {
-        Arrays.sort(arr);
+    static long ceil(long a, long b) {
+        return ((a+b-1)/a);
+    }
+
+    static int ceil(int a, int b) {
+        return (a+b-1)/a;
     }
 
     public static int setBit(int mask, int idx) {
@@ -232,6 +247,38 @@ public class Solution {
             return a;
         }
 
+        public ArrayList<Integer> nextIntegerList(int n) throws IOException {
+            ArrayList<Integer> l=new ArrayList<>();
+            for(int i=0; i<n; i++) {
+                l.add(sc.nextInt());
+            }
+            return l;
+        }
+
+        public ArrayList<Integer> NextIntegerList(int n) throws IOException {
+            ArrayList<Integer> l=new ArrayList<>();
+            for(int i=1; i<=n; i++) {
+                l.add(sc.nextInt());
+            }
+            return l;
+        }
+
+        public ArrayList<Long> nextLongList(int n) throws IOException {
+            ArrayList<Long> l=new ArrayList<>();
+            for(int i=0; i<n; i++) {
+                l.add(sc.nextLong());
+            }
+            return l;
+        }
+
+        public ArrayList<Long> NextLongList(int n) throws IOException {
+            ArrayList<Long> l=new ArrayList<>();
+            for(int i=1; i<=n; i++) {
+                l.add(sc.nextLong());
+            }
+            return l;
+        }
+
         public boolean ready() throws IOException {
             return br.ready();
         }
@@ -284,6 +331,14 @@ public class Solution {
             pw.print(arr[i] + " ");
         }
         pw.println();
+    }
+
+    public static void yes() {
+        pw.println("YES");
+    }
+
+    public static void no() {
+        pw.println("NO");
     }
 
     static int inf = 1000000050;
